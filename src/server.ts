@@ -18,6 +18,11 @@ const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json());
 app.use(cors());
 
+// Health Check Route
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'Server is running' });
+});
+
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/telegram', telegramRoutes);
